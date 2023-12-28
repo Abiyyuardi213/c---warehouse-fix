@@ -4,7 +4,8 @@
 
 using namespace std;
 
-void mTambahAdmin(string user, string phone, string mail, string pass) {
+void mTambahAdmin(string name, string user, string phone, string mail, string pass) {
+    namaAdmin[dataAdmin] = name;
     userName[dataAdmin] = user;
     phoneNumber[dataAdmin] = phone;
     userEmail[dataAdmin] = mail;
@@ -13,15 +14,15 @@ void mTambahAdmin(string user, string phone, string mail, string pass) {
 }
 
 void mLihatAdmin() {
-    cout<<"=====--- DATA ADMIN ---====="<<endl;
+    cout<<"=========================================----- DATA ADMIN -----========================================="<<endl;
     cout<<"Jumlah admin : "<<dataAdmin<<endl;
-    cout<<"================================================================================="<<endl;
-    cout<<"Username\t\tNo. Telp\t\tEmail\t\t\tPassword"<<endl;
-    cout<<"================================================================================="<<endl;
+    cout<<"========================================================================================================"<<endl;
+    cout<<"Nama Admin\t\tUsername\t\tNo. Telp\t\tEmail\t\t\tPassword"<<endl;
+    cout<<"========================================================================================================"<<endl;
     for (int i = 0; i < dataAdmin; i++) {
-        cout<<userName[i]<<"\t\t\t"<<phoneNumber[i]<<"\t\t"<<userEmail[i]<<"\t"<<password[i]<<endl;
+        cout<<namaAdmin[i]<<"\t\t"<<userName[i]<<"\t\t"<<phoneNumber[i]<<"\t\t"<<userEmail[i]<<"\t"<<password[i]<<endl;
     }
-    cout<<"================================================================================="<<endl;
+    cout<<"========================================================================================================"<<endl;
 }
 
 int mCariAdmin(string phone) {
@@ -56,4 +57,24 @@ bool mLogin(string user, string pass) {
     cout<<"======= ATAU KATA SANDI SALAH ========"<<endl;
     cout<<"====================================== \n";
     return false;
+}
+
+
+void mDeleteAdmin(string phone) {
+    int index = mCariAdmin(phone);
+
+    if (index != -1) {
+        //menghapus admin dari array
+        for (int i = 0; i < dataAdmin - 1; i++) {
+            userName[i] = userName[i + 1];
+            phoneNumber[i] = phoneNumber[i + 1];
+            userEmail[i] = userEmail[i + 1];
+            password[i] = password[i + 1];
+        }
+        dataAdmin--;
+
+        cout<<"Admin berhasil dihapus."<<endl;;
+    } else {
+        cout<<"Admin tidak ditemukan."<<endl;
+    }
 }

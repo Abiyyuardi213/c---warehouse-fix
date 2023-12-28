@@ -1,5 +1,3 @@
-//#ifndef DATABASE_H
-//#define DATABASE_H
 #include<string>
 
 using namespace std;
@@ -10,7 +8,6 @@ string stokBarang[100];
 string sNumber[100];
 string kotaTujuan[100];
 string kategori[100];
+string storageArea[100];
 string penyalur[100];
-int DATA_BARANG;
-
-//#endif
+int DATA_BARANG; //informasi data gudang

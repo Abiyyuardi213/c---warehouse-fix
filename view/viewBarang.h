@@ -12,21 +12,35 @@ void vAddBarang() {
         string stock;
         string seNumber;
         string category;
+        string storageArea;
 
-        cout<<"=================================== \n";
-        cout<<"=====----- TAMBAH BARANG -----====="<<endl;
-        cout<<"=================================== \n";
-        cout<<"Nama barang : "; cin>>name;
-        cout<<"Stok barang : "; cin>>stock;
-        cout<<"Kode barang : "; cin>>seNumber;
-        cout<<"Kategori    : "; cin>>category;
-        mAddBarang(name, stock, seNumber, category);
+        cout<<"============================================= \n";
+        cout<<"==========----- TAMBAH BARANG -----=========="<<endl;
+        cout<<"============================================= \n";
+        cin.ignore();
+        cout<<"Nama barang  : ";
+        getline(cin, name);
+        cout<<"Stok barang  : ";
+        getline(cin, stock);
+        cout<<"Kode barang  : ";
+        getline(cin, seNumber);
+        cout<<"Kategori     : ";
+        getline(cin, category);
+        cout<<"Storage area : ";
+        getline(cin, storageArea);
+        mAddBarang(name, stock, seNumber, category, storageArea);
+        cout<<endl;
 
+        cout<<"============================================= \n";
         cout<<"=====--- Barang berhasil ditambahkan ---====="<<endl;
+        cout<<"============================================= \n";
+        cout<<endl;
         mLihatBarang();
 
+        cout<<endl;
         cout<<"Apakah anda ingin menambah barang lagi? (y/n): ";
         cin>>addMore;
+        system("cls");
     } while (addMore == 'y' || addMore == 'Y');
 }
 
@@ -46,11 +60,11 @@ void vCariBarang() {
 
     if (index != -1) {
         cout<<"DATA BARANG"<<endl;
-        cout<<"====================================================="<<endl;
-        cout<<"Nama Barang\t\tJumlah Stok\t\tKode Barang\t\tKategori"<<endl;
-        cout<<"====================================================="<<endl;
-        cout<<namaBarang[index]<<"\t\t"<<stokBarang[index]<<"\t\t"<<sNumber[index]<<"\t\t"<<kategori[index]<<endl;
-        cout<<"====================================================="<<endl;
+        cout<<"========================================================================================================"<<endl;
+        cout<<"Nama Barang\t\tJumlah Stok\t\tKode Barang\t\tKategori\tArea Penyimpanan"<<endl;
+        cout<<"======================================================================================================== \n";
+        cout<<namaBarang[index]<<"\t\t"<<stokBarang[index]<<"\t\t\t"<<sNumber[index]<<"\t\t\t"<<kategori[index]<<"\t"<<storageArea[index]<<endl;
+        cout<<"======================================================================================================== \n";
     } else {
         cout<<"===== Barang tidak ditemukan ====="<<endl;
     }
@@ -60,7 +74,10 @@ void vUpdateBarang() {
     string newStock;
     string seNumber;
 
+    cout<<"=================================== \n";
     cout<<"=====----- UPDATE BARANG -----====="<<endl;
+    cout<<"=================================== \n";
+    cout<<endl;
     cout<<"Kode barang : "; cin>>seNumber;
 
     //cek barang
@@ -68,11 +85,12 @@ void vUpdateBarang() {
 
     if (index != -1) {
         cout<<"Data barang sebelumnya"<<endl;
-        cout<<"===================================================== \n";
+        cout<<"================================================================================ \n";
         cout<<"Nama Barang\t\tJumlah Barang\t\tKode Barang\t\tKategori"<<endl;
-        cout<<"===================================================== \n";
+        cout<<"================================================================================ \n";
         cout<<namaBarang[index]<<"\t\t"<<stokBarang[index]<<"\t\t"<<seNumber[index]<<"\t\t"<<kategori[index]<<endl;
-        cout<<"===================================================== \n";
+        cout<<"================================================================================ \n";
+        cout<<endl;
 
         //update informasi barang
         cout<<"Jumlah stok baru : "; cin>>newStock;
@@ -126,7 +144,10 @@ void vSendBarang() {
     string seNumber;
     string jumlah;
 
+    cout<<"================================== \n";
     cout<<"=====----- KIRIM BARANG -----====="<<endl;
+    cout<<"================================== \n";
+    cout<<endl;
     cout<<"Kode barang : "; cin>>seNumber;
 
     //cek barang ditemukan
@@ -134,11 +155,11 @@ void vSendBarang() {
 
     if (index != -1) {
         cout<<"Data barang"<<endl;
-        cout<<"================================================================= \n";
-        cout<<"Nama Barang\t\tJumlah Stok\t\tKode Barang\t\tKategori"<<endl;
-        cout<<"================================================================= \n";
+        cout<<"================================================================================ \n";
+        cout<<"Nama Barang\tJumlah Stok\tKode Barang\tKategori"<<endl;
+        cout<<"================================================================================ \n";
         cout<<namaBarang[index]<<"\t\t"<<stokBarang[index]<<"\t\t"<<seNumber[index]<<"\t\t"<<kategori[index]<<endl;
-        cout<<"================================================================= \n";
+        cout<<"================================================================================ \n";
 
         //memasukan data pengiriman
         cout<<"Masukkan jumlah barang yang akan dikirim : "; cin>>jumlah;

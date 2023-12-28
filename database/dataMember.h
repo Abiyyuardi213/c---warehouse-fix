@@ -5,6 +5,7 @@
 using namespace std;
 
 //data admin warehouse
+string namaAdmin[100];
 string userName[100];
 string phoneNumber[100];
 string userEmail[100];

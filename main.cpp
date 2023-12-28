@@ -9,91 +9,140 @@ using namespace std;
 
 int main() {
     int pilih;
+    int pilih2;
+    int pilih3;
 
-    mTambahAdmin("abiyyuardi", "089532321212", "abiyyu213@gmail.com", "1234");
+    //data statis user
+    mTambahAdmin("Ahmad indra", "imismaindra", "089532321212", "indrawibu@gmail.com", "1234");
+    mTambahAdmin("Habib jafar", "habibjawir", "081193932222", "habibjawir@gmail.com", "2222");
+    mTambahAdmin("Riski maul", "riskimaul", "081112123434", "riskimaul@gmail.com", "3434");
 
+    //data statis informasi barang
+    mAddBarang("pipa allloy", "200 pcs", "M/RY001", "Mountbike", "Area A 3/14");
+    mAddBarang("dropbar FSA", "150 pcs", "R/EZ012", "roadbike", "Area D 2/09");
+    mAddBarang("carbon fork", "500 pcs", "R/UV009", "roadbike", "Area G 5/112");
+    mAddBarang("Frame S2 56", "300 pcs", "R/S2149", "roadbike", "Area F 7/208");
+    mAddBarang("Frame S3 55", "150 pcs", "R/S3008", "roadbike", "Area C 2/120");
+    
     do {
         loginRegister();
         cout<<"Masukkan pilihan anda : "; cin>>pilih;
         system("cls");
 
-        switch(pilih) {
-            case 1 :
-                //login
-                vLogin();
+        if (pilih == 1) {
+            //tampilkan menu login
+            vLogin();
+            system("cls");
+
+            do {
+                //tampilkan menu gudang
+                menuWarehouse();
+                cout<<"Masukkan pilihan anda : "; cin>>pilih2;
                 system("cls");
-                do {
-                    menuWarehouse();
-                    cout<<"Masukkan pilihan anda : "; cin>>pilih;
-                    system("cls");
 
-                    switch(pilih) {
-                        case 1 :
-                            //tambah barang
-                            vAddBarang();
-                            break;
+                if (pilih2 == 1) {
+                    //tampilkan menu tambah barang
+                    vAddBarang();
 
-                        case 2 :
-                            //informasi barang
-                            vViewBarang();
-                            break;
+                } else if (pilih2 == 2) {
+                    //tampilkan menu informasi barang
+                    vViewBarang();
+                    cout<<endl;
 
-                        case 3 :
-                            //hapus stok barang
-                            vDeleteBarang();
-                            break;
+                } else if (pilih2 == 3) {
+                    //tampilkan menu cari barang
+                    vCariBarang();
+                    cout<<endl;
 
-                        case 4 :
-                            //kirim barang
-                            vSendBarang();
-                            break;
+                } else if (pilih2 == 4) {
+                    //tampilkan menu hapus barang
+                    vDeleteBarang();
+                    cout<<endl;
 
-                        case 5 :
-                            //update barang
-                            vUpdateBarang();
-                            break;
+                } else if (pilih2 == 5) {
+                    //tampilkan menu kirim barang
+                    vSendBarang();
+                    cout<<endl;
 
-                        case 6 :
-                            cout<<"================================= \n";
-                            cout<<"=====--- PROGRAM SELESAI ---====="<<endl;
-                            cout<<"=====---- TERIMA KASIH -----====="<<endl;
-                            cout<<"================================= \n";
-                            break;
+                } else if (pilih2 == 6) {
+                    //tampilkan menu update barang
+                    vUpdateBarang();
+                    cout<<endl;
 
-                        default :
-                            cout<<"================================== \n";
-                            cout<<"======= PILIHAN TIDAK VALID ======="<<endl;
-                            cout<<"=======-- Pilih menu 1-5 ---======="<<endl;
-                            cout<<"=================================== \n";
-                    }
-                } while (pilih != 6);
-                break;
+                } else if (pilih2 == 7) {
+                    //program selesai
+                    cout<<"===================================== \n";
+                    cout<<"=====----- PROGRAM SELESAI -----====="<<endl;
+                    cout<<"=====------- TERIMA KASIH ------====="<<endl;
+                    cout<<"===================================== \n";
+                    cout<<endl;
 
-            case 2 :
-                //tambah admin
-                vTambahAdmin();
-                cout<<"====--- Data admin berhasil ditambahkan ---===="<<endl;
-                vViewAdmin();
-                break;
+                } else if (pilih2 > 7) {
+                    cout<<"========================================= \n";
+                    cout<<"=====----- PILIHAN TIDAK VALID -----====="<<endl;
+                    cout<<"=====------- PILIH MENU 1 - 7 ------====="<<endl;
+                    cout<<"========================================= \n";
+                    cout<<endl;
 
-            case 3 :
-                //tampilkan data admin
-                vViewAdmin();
-                break;
+                }
+            } while (pilih2 != 7);
 
-            case 4 :
-                //tidak memilih login maupun tambah admin
-                cout<<"========================= \n";
-                cout<<"====== TERIMA KASIH ====="<<endl;
-                cout<<"==== PROGRAM SELESAI ===="<<endl;
-                cout<<"========================= \n";
-                break;
+        } else if (pilih == 2) {
+            //tampilkan menu tambah admin
+            vTambahAdmin();
 
-            default :
-                cout<<"================================= \n";
-                cout<<"====== PILIHAN TIDAK VALID ======"<<endl;
-                cout<<"==== SILAHKAN PILIH MENU 1-3 ===="<<endl;
-                cout<<"================================= \n";
+            //setelah menambah dan berhasil, tampilkan daftar admin
+            mLihatAdmin();
+            cout<<endl;
+
+        } else if (pilih == 3) {
+            //tampilkan data admin
+            vViewAdmin();
+            cout<<"Masukkan pilihan anda : "; cin>>pilih3;
+            system("cls");
+
+            if (pilih3 == 1) {
+                //update password admin
+                vUpdtPass();
+                cout<<endl;
+
+            } else if (pilih3 == 2) {
+                //delete admin
+                vDeleteAdmin();
+                cout<<endl;
+
+            } else if (pilih3 == 3) {
+                //ketika pilihan diataS 3 menu
+                cout<<"========================================= \n";
+                cout<<"=====----- Pilihan tidak valid -----====="<<endl;
+                cout<<"========================================= \n";
+                cout<<endl;
+            }
+
+        } else if (pilih == 4) {
+            //cari admin
+            vCariAdmin();
+            cout<<endl;
+
+        } else if (pilih == 5) {
+            //pilih keluar
+            cout<<"================================== \n";
+            cout<<"=====----- TERIMA KASIH -----====="<<endl;
+            cout<<"=====--- PROGRAM SELESAI ----====="<<endl;
+            cout<<"================================== \n";
+            cout<<endl;
+
+        } else if (pilih > 5) {
+            //ketika pilihan tidak ada
+            cout<<"========================================= \n";
+            cout<<"=====----- PILIHAN TIDAK VALID -----====="<<endl;
+            cout<<"=====--- SILAHKAN PILIH MENU 1-4 ---====="<<endl;
+            cout<<"========================================= \n";
+            cout<<endl;
+
         }
-    } while (pilih != 3);
+
+    } while (pilih != 5);
+
+    return 0;
 }

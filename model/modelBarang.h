@@ -4,24 +4,25 @@
 
 using namespace std;
 
-void mAddBarang(string name, string stock, string seNumber, string category) {
+void mAddBarang(string name, string stock, string seNumber, string category, string area) {
     namaBarang[DATA_BARANG] = name;
     stokBarang[DATA_BARANG] = stock;
     sNumber[DATA_BARANG] = seNumber;
     kategori[DATA_BARANG] = category;
+    storageArea[DATA_BARANG] = area;
     DATA_BARANG++;
 }
 
 void mLihatBarang() {
-    cout<<"=====--- DATA BARANG ---====="<<endl;
+    cout<<"===================================---------- DATA BARANG ----------===================================="<<endl;
     cout<<"Jumlah barang : "<<DATA_BARANG<<endl;
-    cout<<"==================================================================== \n";
-    cout<<"Nama Barang\t\tJumlah Stok\t\tKode Barang\t\tKategori"<<endl;
-    cout<<"==================================================================== \n";
+    cout<<"======================================================================================================== \n";
+    cout<<"Nama Barang\t\tJumlah Stok\t\tKode Barang\t\tKategori\tArea Penyimpanan"<<endl;
+    cout<<"======================================================================================================== \n";
     for (int i = 0; i < DATA_BARANG; i++) {
-        cout<<namaBarang[i]<<"\t\t"<<stokBarang[i]<<"\t\t"<<sNumber[i]<<"\t\t"<<kategori[i]<<endl;
+        cout<<namaBarang[i]<<"\t\t"<<stokBarang[i]<<"\t\t\t"<<sNumber[i]<<"\t\t\t"<<kategori[i]<<"\t"<<storageArea[i]<<endl;
     }
-    cout<<"==================================================================== \n";
+    cout<<"======================================================================================================== \n";
 }
 
 int mSearchBarang(string seNumber) {
