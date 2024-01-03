@@ -176,3 +176,28 @@ void vSendBarang() {
         cout<<"=====--- Barang tidak ditemukan ---====="<<endl;
     }
 }
+
+void vMoveBarang() {
+    string sNumber;
+    string moveArea;
+    string stokBarang;
+    string shifter;
+
+    cout<<"====================================================== \n";
+    cout<<"=====----- PINDAH BARANG KE DIVISI PRODUKSI -----====="<<endl;
+    cout<<"====================================================== \n";
+    cout<<endl;
+    cout<<"====================================================== \n";
+    cout<<"= Serial number    : "; cin>>sNumber;
+    cout<<"= Divisi tujuan    : "; cin>>moveArea;
+    cout<<"= Jumlah stok      : "; cin>>stokBarang;
+    cout<<"= Penanggung jawab : "; cin>>shifter;
+    cout<<"====================================================== \n";
+    cout<<endl;
+
+    //pindahkan barang
+    mMoveBarang(sNumber, moveArea, stokBarang, shifter);
+    cout<<endl;
+
+    vViewBarang(); 
+}

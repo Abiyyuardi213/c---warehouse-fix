@@ -1,6 +1,8 @@
 #include<iostream>
 #include<string>
 #include "D:\Program\c++ warehouse fix\database\dataGudang.h"
+#include "D:\Program\c++ warehouse fix\database\dataPindah.h"
+#include "D:\Program\c++ warehouse fix\model\modelHistory.h"
 
 using namespace std;
 
@@ -73,5 +75,44 @@ void mSendBarang(string seNumber, string jumlah) {
         }
     } else {
         cout<<"=====--- Barang tidak ditemukan ---====="<<endl;
+    }
+}
+
+void mMoveBarang(string seNumber, string moveArea, string quantity, string shifter) {
+    //cek barang
+    int index = mSearchBarang(seNumber);
+    if (index != 1) {
+        //konversi jumlah ke tipe data integer
+        int jumlahPindah = stoi(quantity);
+
+        //validasi jumlah stok yang akan dipindah
+        if (jumlahPindah > 0 && jumlahPindah <= stoi(stokBarang[index])) {
+            //simpan informasi barang yang akan dipindahkan
+            namaBarangPindah[DATA_BARANG_PINDAH] = namaBarang[index];
+            stokBarangPindah[DATA_BARANG_PINDAH] = to_string(jumlahPindah);
+            sNumberPindah[DATA_BARANG_PINDAH] = sNumber[index];
+            kategoriPindah[DATA_BARANG_PINDAH] = kategori[index];
+            stokBarangPindah[DATA_BARANG_PINDAH] = moveArea[index];
+            penyalurPindah[DATA_BARANG_PINDAH] = shifter[index];
+
+            DATA_BARANG_PINDAH++;
+
+            //kurangi stok barang dari area asal
+            stokBarang[index] = to_string(stoi(stokBarang[index]) - jumlahPindah);
+            cout<<"================================================= \n";
+            cout<<"=====----- Barang berhasil dipindahkan -----====="<<endl;
+            cout<<"================================================= \n";
+
+        } else {
+            cout<<"================================================== \n";
+            cout<<"=====----- Jumlah stok tidak valid atau -----====="<<endl;
+            cout<<"=====----- melebihi dari kapasitas stok -----====="<<endl;
+            cout<<"================================================== \n";
+        }
+
+    } else {
+        cout<<"============================================ \n";
+        cout<<"=====----- Barang tidak ditemukan -----====="<<endl;
+        cout<<"============================================ \n";
     }
 }

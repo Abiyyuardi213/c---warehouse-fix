@@ -1,9 +1,11 @@
 #include<iostream>
 #include<string>
-#include "D:\Program\c++ warehouse fix\view\viewAdmin.h"
 #include "D:\Program\c++ warehouse fix\header\loginRegister.h"
 #include "D:\Program\c++ warehouse fix\database\menuUtama.h"
+#include "D:\Program\c++ warehouse fix\view\viewAdmin.h"
 #include "D:\Program\c++ warehouse fix\view\viewBarang.h"
+#include "D:\Program\c++ warehouse fix\view\viewSupplier.h"
+
 
 using namespace std;
 
@@ -70,14 +72,28 @@ int main() {
                     cout<<endl;
 
                 } else if (pilih2 == 7) {
+                    //tampilkan menu pindah barang
+                    vMoveBarang();
+                    cout<<endl;
+
+                } else if (pilih2 == 8) {
+                    //tampilkan menu tambah supplier
+                    vAddSupplier();
+                    cout<<endl;
+
+                } else if (pilih2 == 9) {
+                    //tampilkan menu lihat riwayat transaksi
+                    //vLihatRiwayat();
+                    cout<<endl;
+
+                } else if (pilih2 == 10) {
                     //program selesai
                     cout<<"===================================== \n";
                     cout<<"=====----- PROGRAM SELESAI -----====="<<endl;
                     cout<<"=====------- TERIMA KASIH ------====="<<endl;
                     cout<<"===================================== \n";
                     cout<<endl;
-
-                } else if (pilih2 > 7) {
+                } else if (pilih2 > 10) {
                     cout<<"========================================= \n";
                     cout<<"=====----- PILIHAN TIDAK VALID -----====="<<endl;
                     cout<<"=====------- PILIH MENU 1 - 7 ------====="<<endl;

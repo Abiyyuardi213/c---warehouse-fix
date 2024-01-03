@@ -12,7 +12,6 @@ void mTambahAdmin(string name, string user, string phone, string mail, string pa
     password[dataAdmin] = pass;
     dataAdmin++;
 }
-
 void mLihatAdmin() {
     cout<<"=========================================----- DATA ADMIN -----========================================="<<endl;
     cout<<"Jumlah admin : "<<dataAdmin<<endl;

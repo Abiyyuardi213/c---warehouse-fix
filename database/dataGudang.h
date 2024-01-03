@@ -9,5 +9,6 @@ string sNumber[100];
 string kotaTujuan[100];
 string kategori[100];
 string storageArea[100];
+string moveArea[100];
 string penyalur[100];
 int DATA_BARANG; //informasi data gudang

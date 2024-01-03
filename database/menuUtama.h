@@ -16,6 +16,9 @@ void menuWarehouse() {
     cout<<"= 4. Hapus stok barang                         = \n";
     cout<<"= 5. Kirim barang                              = \n";
     cout<<"= 6. Update barang                             = \n";
-    cout<<"= 7. Keluar                                    = \n";
+    cout<<"= 7. Pindahkan barang ke divisi produksi       = \n";
+    cout<<"= 8. Tambah supplier                           = \n";
+    cout<<"= 9. Lihat riwayat transaksi                   = \n";
+    cout<<"= 10. Keluar                                   = \n";
     cout<<"================================================ \n";
 }
