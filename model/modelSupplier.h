@@ -27,3 +27,31 @@ void mLihatSupplier() {
     }
     cout<<"============================================= \n";
 }
+
+//fungsi untuk menambah riwayat supplier
+void mAddRiwayat(string type, string detail) {
+    time_t t = time(0);
+    struct tm* now = localtime(&t);
+    char timebuf[80];
+    strftime(timebuf, sizeof(timebuf), "%Y-%m-%d %X", now);
+
+    tipeTransaksi[jumHistory] = type;
+    timeStamp[jumHistory] = timebuf;
+    detilTransaki[jumHistory] = detail;
+
+    jumHistory++;
+}
+
+//fungsi untuk melihat riwayat supplier
+void mSeeRiwayat() {
+    cout<<"================================================ \n";
+    cout<<"==========----- RIWAYAT SUPPLIER -----=========="<<endl;
+    cout<<"================================================ \n";
+
+    for (int i = 0; i < jumHistory; i++) {
+        cout<<"Jenis Transaksi  : "<<tipeTransaksi[i]<<endl;
+        cout<<"Timestamp        : "<<timeStamp[i]<<endl;
+        cout<<"Detail Transaksi : "<<detilTransaki[i]<<endl;
+    }
+    cout<<"================================================ \n";
+}

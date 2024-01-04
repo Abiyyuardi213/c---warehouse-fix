@@ -1,4 +1,5 @@
 #include "D:\Program\c++ warehouse fix\model\modelBarang.h"
+#include "D:\Program\c++ warehouse fix\model\modelHistory.h"
 #include<iostream>
 #include<string>
 
@@ -30,6 +31,9 @@ void vAddBarang() {
         getline(cin, storageArea);
         mAddBarang(name, stock, seNumber, category, storageArea);
         cout<<endl;
+
+        //tambahkan ke riwayat transaksi
+        mRiwayatTransaksi("Tambah barang", "Nama : " + name + ", Kode barang : " + seNumber);
 
         cout<<"============================================= \n";
         cout<<"=====--- Barang berhasil ditambahkan ---====="<<endl;
@@ -79,17 +83,19 @@ void vUpdateBarang() {
     cout<<"=================================== \n";
     cout<<endl;
     cout<<"Kode barang : "; cin>>seNumber;
+    cout<<endl;
 
     //cek barang
     int index = mSearchBarang(seNumber);
 
     if (index != -1) {
-        cout<<"Data barang sebelumnya"<<endl;
-        cout<<"================================================================================ \n";
-        cout<<"Nama Barang\t\tJumlah Barang\t\tKode Barang\t\tKategori"<<endl;
-        cout<<"================================================================================ \n";
-        cout<<namaBarang[index]<<"\t\t"<<stokBarang[index]<<"\t\t"<<seNumber[index]<<"\t\t"<<kategori[index]<<endl;
-        cout<<"================================================================================ \n";
+        cout<<"================================================================================================================ \n";
+        cout<<"==================================---------- Data barang sebelumnya ----------=================================="<<endl;
+        cout<<"================================================================================================================ \n";
+        cout<<"Nama Barang\t\tJumlah Barang\t\tKode Barang\t\tKategori\t\tArea Penyimpanan"<<endl;
+        cout<<"================================================================================================================ \n";
+        cout<<namaBarang[index]<<"\t\t"<<stokBarang[index]<<"\t\t\t"<<sNumber[index]<<"\t\t\t"<<kategori[index]<<"\t\t"<<storageArea[index]<<endl;
+        cout<<"================================================================================================================ \n";
         cout<<endl;
 
         //update informasi barang
@@ -120,11 +126,11 @@ void vDeleteBarang() {
 
     if (index != -1) {
         cout<<"DATA BARANG"<<endl;
-        cout<<"======================================================== \n";
-        cout<<"Nama Barang\t\tJumlah Stok\t\tKode Barang\t\tKategori"<<endl;
-        cout<<"======================================================== \n";
-        cout<<namaBarang[index]<<"\t\t"<<stokBarang[index]<<"\t\t"<<seNumber[index]<<"\t\t"<<kategori[index]<<endl;
-        cout<<"======================================================== \n";
+        cout<<"================================================================================================================ \n";
+        cout<<"Nama Barang\t\tJumlah Stok\t\tKode Barang\t\tKategori\t\tArea Penyimpanan"<<endl;
+        cout<<"================================================================================================================ \n";
+        cout<<namaBarang[index]<<"\t\t"<<stokBarang[index]<<"\t\t\t"<<sNumber[index]<<"\t\t\t"<<kategori[index]<<"\t\t"<<storageArea[index]<<endl;
+        cout<<"================================================================================================================ \n";
 
         //konfirmasi penghapusan
         char yes;
@@ -156,19 +162,26 @@ void vSendBarang() {
     if (index != -1) {
         cout<<"Data barang"<<endl;
         cout<<"================================================================================ \n";
-        cout<<"Nama Barang\tJumlah Stok\tKode Barang\tKategori"<<endl;
+        cout<<"Nama Barang\tJumlah Stok\tKode Barang\tKategori\tArea Penyimpanan"<<endl;
         cout<<"================================================================================ \n";
-        cout<<namaBarang[index]<<"\t\t"<<stokBarang[index]<<"\t\t"<<seNumber[index]<<"\t\t"<<kategori[index]<<endl;
+        cout<<namaBarang[index]<<"\t"<<stokBarang[index]<<"\t\t"<<sNumber[index]<<"\t\t"<<kategori[index]<<"\t"<<storageArea[index]<<endl;
         cout<<"================================================================================ \n";
 
         //memasukan data pengiriman
-        cout<<"Masukkan jumlah barang yang akan dikirim : "; cin>>jumlah;
+        cin.ignore();
+        cout<<"Masukkan jumlah barang yang akan dikirim : ";
+        getline(cin, jumlah);
+        cout<<endl;
 
         //cek apakah jumlah pengiriman valid
         if (stoi(jumlah) >= 0) {
             //mengurangi stok dan update barang
             mSendBarang(seNumber, jumlah);
             vViewBarang();
+
+            //tambahkan ke riwayat transaksi
+            mRiwayatTransaksi("Kirim barang", "Kode Barang : " + seNumber + ", Jumlah : " + jumlah);
+
         } else {
             cout<<"=====--- Jumlah pengiriman tidak valid ---====="<<endl;
         }
@@ -198,6 +211,9 @@ void vMoveBarang() {
     //pindahkan barang
     mMoveBarang(sNumber, moveArea, stokBarang, shifter);
     cout<<endl;
+
+    //tambahkan ke riwayat transaksi
+    mRiwayatTransaksi("Pindah Barang", "Kode Barang : " + sNumber + ", Jumlah : " + stokBarang + ", Tujuan : " + moveArea);
 
     vViewBarang(); 
 }

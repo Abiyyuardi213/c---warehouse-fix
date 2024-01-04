@@ -2,7 +2,6 @@
 #include<string>
 #include "D:\Program\c++ warehouse fix\database\dataGudang.h"
 #include "D:\Program\c++ warehouse fix\database\dataPindah.h"
-#include "D:\Program\c++ warehouse fix\model\modelHistory.h"
 
 using namespace std;
 
@@ -99,6 +98,7 @@ void mMoveBarang(string seNumber, string moveArea, string quantity, string shift
 
             //kurangi stok barang dari area asal
             stokBarang[index] = to_string(stoi(stokBarang[index]) - jumlahPindah);
+
             cout<<"================================================= \n";
             cout<<"=====----- Barang berhasil dipindahkan -----====="<<endl;
             cout<<"================================================= \n";

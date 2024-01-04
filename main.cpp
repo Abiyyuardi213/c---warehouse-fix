@@ -5,6 +5,7 @@
 #include "D:\Program\c++ warehouse fix\view\viewAdmin.h"
 #include "D:\Program\c++ warehouse fix\view\viewBarang.h"
 #include "D:\Program\c++ warehouse fix\view\viewSupplier.h"
+#include "D:\Program\c++ warehouse fix\model\modelHistory.h"
 
 
 using namespace std;
@@ -83,16 +84,22 @@ int main() {
 
                 } else if (pilih2 == 9) {
                     //tampilkan menu lihat riwayat transaksi
-                    //vLihatRiwayat();
+                    mSeeHistory();
                     cout<<endl;
 
                 } else if (pilih2 == 10) {
+                    //menampilkan history supplier
+                    vSeeRiwayat();
+                    cout<<endl;
+
+                } else if (pilih2 == 11) {
                     //program selesai
                     cout<<"===================================== \n";
                     cout<<"=====----- PROGRAM SELESAI -----====="<<endl;
                     cout<<"=====------- TERIMA KASIH ------====="<<endl;
                     cout<<"===================================== \n";
                     cout<<endl;
+                
                 } else if (pilih2 > 10) {
                     cout<<"========================================= \n";
                     cout<<"=====----- PILIHAN TIDAK VALID -----====="<<endl;
@@ -101,7 +108,7 @@ int main() {
                     cout<<endl;
 
                 }
-            } while (pilih2 != 7);
+            } while (pilih2 != 10);
 
         } else if (pilih == 2) {
             //tampilkan menu tambah admin

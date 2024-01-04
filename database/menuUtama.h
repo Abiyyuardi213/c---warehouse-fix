@@ -19,6 +19,7 @@ void menuWarehouse() {
     cout<<"= 7. Pindahkan barang ke divisi produksi       = \n";
     cout<<"= 8. Tambah supplier                           = \n";
     cout<<"= 9. Lihat riwayat transaksi                   = \n";
-    cout<<"= 10. Keluar                                   = \n";
+    cout<<"= 10. Lihat riwayat supplier                   = \n";
+    cout<<"= 11. Keluar                                   = \n";
     cout<<"================================================ \n";
 }
