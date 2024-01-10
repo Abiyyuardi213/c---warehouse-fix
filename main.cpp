@@ -7,7 +7,6 @@
 #include "D:\Program\c++ warehouse fix\view\viewSupplier.h"
 #include "D:\Program\c++ warehouse fix\model\modelHistory.h"
 
-
 using namespace std;
 
 int main() {
@@ -135,6 +134,9 @@ int main() {
                 cout<<endl;
 
             } else if (pilih3 == 3) {
+                cout<<endl;
+                
+            } else if (pilih3 > 3) {
                 //ketika pilihan diataS 3 menu
                 cout<<"========================================= \n";
                 cout<<"=====----- Pilihan tidak valid -----====="<<endl;

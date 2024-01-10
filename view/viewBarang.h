@@ -100,17 +100,21 @@ void vUpdateBarang() {
 
         //update informasi barang
         cout<<"Jumlah stok baru : "; cin>>newStock;
+        cout<<endl;
 
         //cek apakah stok valid
         if (stoi(newStock) >= 0) {
             //menambahkan stok baru
             mUpdateBarang(seNumber, newStock);
             vViewBarang();
+            cout<<endl;
         } else {
             cout<<"=====--- Jumlah stok tidak valid ---====="<<endl;
+            cout<<endl;
         }
     } else {
         cout<<"=====--- Barang tidak ditemukan ---====="<<endl;
+        cout<<endl;
     }
 }
 
@@ -122,6 +126,7 @@ void vDeleteBarang() {
     cout<<"======================================= \n";
     cout<<endl;
     cout<<"Serial number : "; cin>>seNumber;
+    cout<<"======================================= \n";
     int index = mSearchBarang(seNumber);
 
     if (index != -1) {
@@ -136,12 +141,15 @@ void vDeleteBarang() {
         char yes;
         cout<<"Apakah anda yakin ingin menghapus stok barang ini? (y/n):";
         cin>>yes;
+        cout<<endl;
 
         if (yes == 'y' || yes == 'Y') {
             mDeleteBarang(seNumber);
             vViewBarang();
+            cout<<endl;
         } else {
             cout<<"=====--- Penghapusan dibatalkan ---====="<<endl;
+            cout<<endl;
         }
     }
 }
@@ -155,6 +163,8 @@ void vSendBarang() {
     cout<<"================================== \n";
     cout<<endl;
     cout<<"Kode barang : "; cin>>seNumber;
+    cout<<"================================== \n";
+    cout<<endl;
 
     //cek barang ditemukan
     int index = mSearchBarang(seNumber);
@@ -184,9 +194,11 @@ void vSendBarang() {
 
         } else {
             cout<<"=====--- Jumlah pengiriman tidak valid ---====="<<endl;
+            cout<<endl;
         }
     } else {
         cout<<"=====--- Barang tidak ditemukan ---====="<<endl;
+        cout<<endl;
     }
 }
 

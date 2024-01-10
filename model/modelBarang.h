@@ -41,8 +41,10 @@ void mUpdateBarang(string seNumber, string newStock) {
     if (index != 1) {
         stokBarang[index] = to_string(stoi(stokBarang[index]) + stoi(newStock));
         cout<<"=====--- Jumlah barang berhasil di update ---====="<<endl;
+        cout<<endl;
     } else {
         cout<<"=====--- Barang tidak ditemukan ---====="<<endl;
+        cout<<endl;
     }
 }
 
@@ -53,8 +55,10 @@ void mDeleteBarang(string seNumber) {
         //hapus stok barang
         stokBarang[index] = "0";
         cout<<"=====--- Stok barang berhasil dihapus ---====="<<endl;
+        cout<<endl;
     } else {
         cout<<"=====--- Barang tidak ditemukan ---====="<<endl;
+        cout<<endl;
     }
 }
 
@@ -69,11 +73,14 @@ void mSendBarang(string seNumber, string jumlah) {
         if (jumlahKirim <= jumlahStok) {
             stokBarang[index] = to_string(jumlahStok - jumlahKirim);
             cout<<"=====--- Barang berhasil dikirim ---====="<<endl;
+            cout<<endl;
         } else {
             cout<<"=====--- Jumlah stok tidak mencukupi ---====="<<endl;
+            cout<<endl;
         }
     } else {
         cout<<"=====--- Barang tidak ditemukan ---====="<<endl;
+        cout<<endl;
     }
 }
 
@@ -102,17 +109,20 @@ void mMoveBarang(string seNumber, string moveArea, string quantity, string shift
             cout<<"================================================= \n";
             cout<<"=====----- Barang berhasil dipindahkan -----====="<<endl;
             cout<<"================================================= \n";
+            cout<<endl;
 
         } else {
             cout<<"================================================== \n";
             cout<<"=====----- Jumlah stok tidak valid atau -----====="<<endl;
             cout<<"=====----- melebihi dari kapasitas stok -----====="<<endl;
             cout<<"================================================== \n";
+            cout<<endl;
         }
 
     } else {
         cout<<"============================================ \n";
         cout<<"=====----- Barang tidak ditemukan -----====="<<endl;
         cout<<"============================================ \n";
+        cout<<endl;
     }
 }

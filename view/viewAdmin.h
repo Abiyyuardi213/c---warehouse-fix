@@ -65,6 +65,7 @@ void vCariAdmin() {
         cout<<"========================================================================================================"<<endl;
     } else {
         cout<<"No. Telp tidak ditemukan"<<endl;
+        cout<<endl;
     }
 }
 
@@ -75,8 +76,10 @@ void vUpdtPass() {
     cout<<"===================================== \n";
     cout<<"=====----- UPDATE PASSWORD -----====="<<endl;
     cout<<"===================================== \n";
-    cout<<"No. Telepon  : "; cin>>phone;
-    cout<<"New Password : "; cin>>pass;
+    cout<<"= No. Telepon  : "; cin>>phone;
+    cout<<"= New Password : "; cin>>pass;
+    cout<<"===================================== \n";
+    cout<<endl;
     mUpdtAdmin(phone, pass);
 }
 
@@ -89,6 +92,8 @@ void vLogin() {
     cout<<"================================= \n";
     cout<<"Username : "; cin>>userName;
     cout<<"Password : "; cin>>password;
+    cout<<"================================= \n";
+    cout<<endl;
     mLogin(userName, password);
 }
 
@@ -100,6 +105,7 @@ void vDeleteAdmin() {
     cout<<"================================= \n";
     cout<<endl;
     cout<<"= Nomor telepon : "; cin>>phone;
+    cout<<"================================= \n";
     cout<<endl;
 
     mDeleteAdmin(phone);

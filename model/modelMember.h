@@ -39,8 +39,10 @@ void mUpdtAdmin(string phone, string pass) {
     if (index != 1) {
         password[index] = pass;
         cout<<"=====--- Password berhasil diubah ---====="<<endl;
+        cout<<endl;
     } else {
         cout<<"=====--- No. Telp tidak ditemukan ---====="<<endl;
+        cout<<endl;
     }
 }
 
@@ -48,6 +50,7 @@ bool mLogin(string user, string pass) {
     for (int i = 0; i < dataAdmin; i++) {
         if (userName[i] == user && password[i] == pass) {
             cout<<"=====--- Login berhasil ---====="<<endl;
+            cout<<endl;
             return true;
         }
     }
@@ -55,6 +58,7 @@ bool mLogin(string user, string pass) {
     cout<<"===== LOGIN GAGAL, NAMA PENGGUNA ====="<<endl;
     cout<<"======= ATAU KATA SANDI SALAH ========"<<endl;
     cout<<"====================================== \n";
+    cout<<endl;
     return false;
 }
 
@@ -72,8 +76,10 @@ void mDeleteAdmin(string phone) {
         }
         dataAdmin--;
 
-        cout<<"Admin berhasil dihapus."<<endl;;
+        cout<<"Admin berhasil dihapus."<<endl;
+        cout<<endl;
     } else {
         cout<<"Admin tidak ditemukan."<<endl;
+        cout<<endl;
     }
 }
